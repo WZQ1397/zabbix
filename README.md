@@ -1,2 +1,2 @@
 # zabbix
-auto monitor 
+> 配置方式见有道云笔记下内容
