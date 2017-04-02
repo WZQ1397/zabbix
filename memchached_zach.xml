@@ -27,7 +27,7 @@
             </applications>
             <items>
                 <item>
-                    <name>当前存储占用总大小</name>
+                    <name>当前存储占用总内存大小</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
