@@ -13,7 +13,7 @@ else
 	echo "goto this web download and decompress http://www.zabbix.com/"
 	exit
 
-yum install make gcc libcurl-devel net-snmp-devel php php-gd php-xml php-mysql php-mbstring php-bcmath wget lrzsz telnet lsof -y
+yum install make gcc libcurl-devel net-snmp-devel php php-gd php-xml php-mysql php-mbstring php-bcmath lrzsz -y
 
 sql=chkconfig --list | cut -f 1 | grep -Ei "mysql*|oracle|sqlite" | wc -l
 if [ sql == 0 ]
