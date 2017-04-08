@@ -55,7 +55,7 @@ mysql -uzabbix -pzabbix zabbix -e "CALL partition_maintenance_all('zabbix');"
 
 4.计划任务把上面这条命令放入计划任务
 
-PS:清空表中数据的命令为： truncate table history_uint;
+PS:清空表中数据的命令为： `truncate table history_uint;`
 
 QT:
 
