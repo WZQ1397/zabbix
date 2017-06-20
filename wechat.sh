@@ -3,6 +3,8 @@ CorpID=wx703774c1a3da92e0
 Secret=gobpQYLC-nY2aN4SuzLyvIAOpcDCwzHZ1mpQOUTR3L2jW2-s9Aqa50N7tCxuWJ3K
 GURL="https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=$CorpID&corpsecret=$Secret"
 Gtoken=$(/usr/bin/curl -s -G $GURL | awk -F\" '{print $4}')
+#for personal wechat
+#Gtoken=$(/usr/bin/curl -s -G $GURL | awk -F ":" '{print $4}' | cut -d "," -f 1 | awk -F "\"" '{print $2}')
 PURL="https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=$Gtoken"
 function body() { 
                 local int AppID=1
