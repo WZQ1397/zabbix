@@ -2,15 +2,15 @@
 #chmod 700 ${PATH}/Zabbix_MySQLdump_per_table_v2.sh
 #crontab -e (0 3 * * * ${PATH}/Zabbix_MySQLdump_per_table_v2.sh)
 
-red='\e[0;31m' # 红色  
+red='\e[0;31m' # 绾㈣壊  
 RED='\e[1;31m' 
-green='\e[0;32m' # 绿色  
+green='\e[0;32m' # 缁胯壊  
 GREEN='\e[1;32m' 
-blue='\e[0;34m' # 蓝色  
+blue='\e[0;34m' # 钃濊壊  
 BLUE='\e[1;34m' 
-purple='\e[0;35m' # 紫色  
+purple='\e[0;35m' # 绱壊  
 PURPLE='\e[1;35m' 
-NC='\e[0m' # 没有颜色  
+NC='\e[0m' # 娌℃湁棰滆壊  
 
 source /etc/bashrc
 source /etc/profile
