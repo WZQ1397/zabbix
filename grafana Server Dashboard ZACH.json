@@ -1,0 +1,4635 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_ZABBIX",
+      "label": "zabbix",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "alexanderzobnin-zabbix-datasource",
+      "pluginName": "Zabbix"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "3.1.1"
+    },
+    {
+      "type": "datasource",
+      "id": "alexanderzobnin-zabbix-datasource",
+      "name": "Zabbix",
+      "version": "1.0.0"
+    }
+  ],
+  "id": null,
+  "title": "Server Dashboard ZACH",
+  "tags": [
+    "zabbix"
+  ],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "100px",
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(46, 218, 79, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "height": "50",
+          "id": 3,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "repeat": null,
+          "span": 4,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "General"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Host name"
+              },
+              "mode": 2,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [],
+              "useCaptureGroups": false
+            }
+          ],
+          "thresholds": "",
+          "title": "Host name",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(96, 21, 21, 0.9)",
+            "rgba(224, 93, 32, 0.69)",
+            "rgba(231, 32, 32, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 4,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 14,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "20%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(46, 33, 158, 0.86)",
+            "full": false,
+            "lineColor": "rgba(17, 16, 1, 0.04)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Zabbix agent"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Agent ping"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "status",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "UP",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "DOWN",
+              "value": "0"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(47, 141, 204, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": 0,
+          "editable": true,
+          "error": false,
+          "format": "s",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 4,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "General"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "System uptime"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "Uptime",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(96, 21, 21, 0.9)",
+            "rgba(156, 158, 201, 0.69)",
+            "rgba(132, 62, 16, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 4,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 5,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "20%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(46, 33, 158, 0.86)",
+            "full": false,
+            "lineColor": "rgba(17, 16, 1, 0.04)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Processor load (1 min average per core)"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "LOAD 1MIN",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(96, 21, 21, 0.9)",
+            "rgba(156, 158, 201, 0.69)",
+            "rgba(132, 62, 16, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 4,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 8,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "20%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(46, 33, 158, 0.86)",
+            "full": false,
+            "lineColor": "rgba(17, 16, 1, 0.04)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Processor load (15 min average per core)"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "LOAD 15MIN",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(63, 195, 166, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 17,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "MB",
+          "postfixFontSize": "100%",
+          "prefix": "",
+          "prefixFontSize": "80%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.000001"
+                  ],
+                  "text": "scale(0.000001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Available memory"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "AVALABLY MEMORY",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(63, 195, 166, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 13,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "MB",
+          "postfixFontSize": "100%",
+          "prefix": "",
+          "prefixFontSize": "80%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.000001"
+                  ],
+                  "text": "scale(0.000001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Total memory"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "TOTAL MEMORY",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(96, 21, 21, 0.9)",
+            "rgba(156, 158, 201, 0.69)",
+            "rgba(132, 62, 16, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 4,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 15,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "20%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(46, 33, 158, 0.86)",
+            "full": false,
+            "lineColor": "rgba(17, 16, 1, 0.04)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Processes"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Number of processes"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "total process",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "UP",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "DOWN",
+              "value": "0"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(96, 21, 21, 0.9)",
+            "rgba(156, 158, 201, 0.69)",
+            "rgba(132, 62, 16, 0.97)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 4,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 16,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "20%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(46, 33, 158, 0.86)",
+            "full": false,
+            "lineColor": "rgba(17, 16, 1, 0.04)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Processes"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Number of running processes"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "running process",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(63, 195, 166, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 18,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "GB",
+          "postfixFontSize": "100%",
+          "prefix": "",
+          "prefixFontSize": "80%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Filesystems"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.000000001"
+                  ],
+                  "text": "scale(0.000000001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Free disk space on /"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "数据盘可用",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(63, 195, 166, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 19,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "GB",
+          "postfixFontSize": "100%",
+          "prefix": "",
+          "prefixFontSize": "80%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "application": {
+                "filter": "Filesystems"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.000000001"
+                  ],
+                  "text": "scale(0.000000001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Free disk space on /"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": "",
+          "title": "系统盘可用",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        }
+      ],
+      "showTitle": false,
+      "title": "General"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "200px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": 80,
+            "threshold1Color": "rgba(215, 213, 25, 0.27)",
+            "threshold2": 95,
+            "threshold2Color": "rgba(224, 27, 27, 0.22)",
+            "thresholdLine": false
+          },
+          "id": 1,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "sideWidth": 250,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxDataPoints": "",
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/user/",
+              "color": "#1F78C1"
+            },
+            {
+              "alias": "/system/",
+              "color": "#BF1B00"
+            },
+            {
+              "alias": "/iowait/",
+              "color": "#E5AC0E"
+            },
+            {
+              "alias": "CPU user time",
+              "yaxis": 1
+            }
+          ],
+          "span": 7,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "application": {
+                "filter": "Processes"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": ""
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "CPU user time"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "CPU iowait time"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "CPU interrupt time"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "CPU"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "CPU steal time"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "E",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "CPU",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transparent": false,
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "percent",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {
+            "Total memory": "#FCE2DE"
+          },
+          "bars": false,
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "fill": 0,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 5,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Available memory"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Free swap space"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Total memory"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Free memory"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Memory"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Total swap space"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "E",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "memory",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": "MEMORY",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "showTitle": false,
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "200px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_ZABBIX}",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "fill": 0,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "id": 9,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": true,
+            "hideZero": true,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth0"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth0"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth2"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "E",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth3"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "F",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth3"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "G",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth2"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "H",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on lagg0"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "I",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on lagg0"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "J",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on br-int"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "K",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on br-int"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "L",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on p2p1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "M",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on p2p1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "N",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on em1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "O",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on em1"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "P",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on br-tun"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "Q",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on br-tun"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "R",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth5"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "S",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth5"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "T",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on eth4"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "U",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on eth4"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "V",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on p2p2"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "W",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on p2p2"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "X",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Outgoing network traffic on Broadcom BCM5709C NetXtreme II GigE (NDIS VBD Client) #21"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "Y",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "Network interfaces"
+              },
+              "dsType": "influxdb",
+              "functions": [
+                {
+                  "def": {
+                    "category": "Transform",
+                    "defaultParams": [
+                      100
+                    ],
+                    "name": "scale",
+                    "params": [
+                      {
+                        "name": "factor",
+                        "options": [
+                          100,
+                          0.01,
+                          10,
+                          -1
+                        ],
+                        "type": "float"
+                      }
+                    ]
+                  },
+                  "params": [
+                    "0.001"
+                  ],
+                  "text": "scale(0.001)"
+                }
+              ],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "Incoming network traffic on Broadcom BCM5709C NetXtreme II GigE (NDIS VBD Client) #21"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "Z",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "network",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "transparent": false,
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "KBs",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "kbytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_ZABBIX}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 11,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "application": {
+                "filter": "MySQL"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "MySQL begin operations per second"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "MySQL"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "MySQL bytes received per second"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            },
+            {
+              "application": {
+                "filter": "MySQL"
+              },
+              "dsType": "influxdb",
+              "functions": [],
+              "group": {
+                "filter": "$group"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "host": {
+                "filter": "$host"
+              },
+              "item": {
+                "filter": "MySQL bytes sent per second"
+              },
+              "mode": 0,
+              "options": {
+                "showDisabledItems": false
+              },
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "MYSQL info",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "KBs",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": "${DS_ZABBIX}",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "group",
+        "options": [],
+        "query": "*",
+        "refresh": 1,
+        "regex": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {},
+        "datasource": "${DS_ZABBIX}",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "host",
+        "options": [],
+        "query": "$group.*",
+        "refresh": 1,
+        "regex": "",
+        "tagValuesQuery": "",
+        "tagsQuery": "EYOU_mysql",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": "10s",
+  "schemaVersion": 12,
+  "version": 16,
+  "links": [],
+  "gnetId": null
+}
